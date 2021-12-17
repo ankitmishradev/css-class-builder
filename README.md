@@ -1,6 +1,6 @@
 # CSS class builder
 
-A typescript microframework built to work with `ReactJS` to shortened daily use css class manipulator methods in ReactJS by adding them all into a single method.
+A small typescript package built to work with `ReactJS` to shorten manipulation and handling of css classes by combining useful methods and function into one single package.
 
 ## How to use
 

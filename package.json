@@ -21,10 +21,13 @@
     "postversion": "git push && git push --tags"
   },
   "keywords": [
+    "typescript",
+    "utils",
+    "react",
     "css",
     "css-class",
     "css-class-builder",
-    "shortened-css-methods"
+    "shorten-css-utils"
   ],
   "author": "Ankit Mishra",
   "license": "MIT",
