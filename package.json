@@ -1,12 +1,12 @@
 {
-  "name": "css-class-builder",
+  "name": "class-builder",
   "version": "1.0.0",
-  "description": "A javascript microframework to shortened daily use css class manipulator methods by adding them all into a single method.",
+  "description": "A small typescript package built to work with ReactJS to shorten manipulation and handling of css classes by combining useful methods and function into one single package.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ankitmishradev/css-class-builder.git"
+    "url": "https://github.com/ankitmishradev/class-builder.git"
   },
   "scripts": {
     "start": "npm run build && node dist/index.js",
@@ -21,13 +21,12 @@
     "postversion": "git push && git push --tags"
   },
   "keywords": [
-    "typescript",
-    "utils",
-    "react",
     "css",
     "css-class",
-    "css-class-builder",
-    "shorten-css-utils"
+    "css-utils",
+    "typescript",
+    "react",
+    "utils"
   ],
   "author": "Ankit Mishra",
   "license": "MIT",

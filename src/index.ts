@@ -1,4 +1,4 @@
-class CSSClassBuilder {
+class ClassBuilder {
   protected classes?: string;
 
   constructor(className?: string) {
@@ -42,4 +42,4 @@ class CSSClassBuilder {
   }
 }
 
-export default CSSClassBuilder;
+export default ClassBuilder;

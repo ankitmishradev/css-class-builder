@@ -1,4 +1,4 @@
-# CSS class builder
+# Class Builder
 
 A small typescript package built to work with `ReactJS` to shorten manipulation and handling of css classes by combining useful methods and function into one single package.
 
