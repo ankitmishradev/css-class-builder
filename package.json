@@ -1,12 +1,12 @@
 {
-  "name": "class-builder",
+  "name": "css-class-builder",
   "version": "1.0.0",
   "description": "A small typescript package built to work with ReactJS to shorten manipulation and handling of css classes by combining useful methods and function into one single package.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ankitmishradev/class-builder.git"
+    "url": "https://github.com/ankitmishradev/css-class-builder.git"
   },
   "scripts": {
     "start": "npm run build && node dist/index.js",
