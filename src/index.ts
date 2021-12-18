@@ -1,16 +1,16 @@
 /**
  * A builder function to create a store and introduce helper functions to handle css classnames.
- * @param {string} className - initial classname.
+ * @param {string} initial - initial classname.
  */
-const cssClassBuilder = (className?: string | string[]): CSSClassBuilderInterface => {
+const cssClassBuilder = (initial?: string | string[]): CSSClassBuilderInterface => {
   let store: string;
 
   const resolveProps = (prop: string | string[]) => {
     return typeof prop === 'string' ? (prop as string) : (prop as string[]).join(' ');
   };
 
-  if (className) {
-    store = resolveProps(className);
+  if (initial) {
+    store = resolveProps(initial);
   }
 
   /**
