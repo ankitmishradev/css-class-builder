@@ -1,4 +1,6 @@
+![Version](https://img.shields.io/github/package-json/v/ankitmishradev/css-class-builder)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ankitmishradev/css-class-builder/build)
+![Typescript](https://img.shields.io/github/languages/top/ankitmishradev/css-class-builder)
 ![MIT license](https://img.shields.io/github/license/ankitmishradev/css-class-builder)
 [![CodeFactor A+](https://www.codefactor.io/repository/github/ankitmishradev/css-class-builder/badge)](https://www.codefactor.io/repository/github/ankitmishradev/css-class-builder)
 
