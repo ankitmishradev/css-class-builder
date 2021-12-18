@@ -1,12 +1,12 @@
-# Class Builder
+# CSS Class Builder
 
-A small typescript package built to work with `ReactJS` to shorten manipulation and handling of css classes by combining useful methods and function into one single package.
+A small typescript package built to work with `ReactJS` to shorten manipulation and handling of css classnames by combining useful methods and functions into one single package.
 
 ## How to use
 
 ### Installation
 
-You can install this package to your js or ts project via below command
+You can install the package to your javascript/typescript project, using below command
 
 ```cmd
 npm i css-class-builder
@@ -14,77 +14,77 @@ npm i css-class-builder
 
 ### Setup
 
-After installation import this package in your project file,
+After installation import the package in your project file,
 
 ```js
-import CSSClassBuilder from 'CSSClassBuilder';
+import cssClassBuilder from 'css-class-builder';
 ```
 
-Then, create a new instance of the builder,
+Then initialize the builder function,
 
 ```js
-const cssClass = new CSSClassBuilder();
+const classname = cssClassBuilder();
 ```
 
-Now you can use `cssClass` to interact.
+This initialization creates a store where we can add, remove or toggle classnames. We can use `classname` to interact with the store.
 
 ## Features
 
 ### Initializing with value
 
-The builder can be instanciated with a single or multiple initial css classes.
+The builder function can be initialized with a single or multiple classnames.
 
 ```js
-const cssClass = new CSSClassBuilder('initial'); // -> initial
-const headingClass = new CSSClassBuilder('heading h-6'); // -> heading h-6
+const classname = cssClassBuilder('initial'); // -> initial
+const headingClass = cssClassBuilder('heading h-6'); // -> heading h-6
 ```
 
 ### Extending css class
 
-Once you have created an instance of the builder you can extend a single or multiple css classes on the builder
+Once you have initialized the builder function you can use `extend` method to add classname(s) to the store.
 
 ```js
-const cssClass = new CSSClassBuilder();
-cssClass.extend('another-css-class'); // -> another-css-class
-cssClass.extend('red green'); // -> another-css-class red green
+const classname = cssClassBuilder();
+classname.extend('another-css-class'); // -> another-css-class
+classname.extend('red green'); // -> another-css-class red green
 ```
 
 ### Removing css class
 
-You can also remove a single or multiple css classes from the builder.
+`remove` method can be used to remove classname(s) from the store.
 
 ```js
-const cssClass = new CSSClassBuilder('bold italic');
-cssClass.remove('italic'); // -> bold
+const classname = cssClassBuilder('bold italic');
+classname.remove('italic'); // -> bold
 ```
 
 ### Toggling class dynamically
 
-A single or multiple classes can be extended or removed from builder dynamically. We can use `toggle` function of the builder to toggle class over a boolean value.
+Classname(s) can be extended or removed from the store. We can use `toggle` method to toggle classname(s) over a boolean value.
 
-- For `true`, the class will be extended on builder.
-- For `false`, the class will be removed from builder.
+- For `true`, the classname will be added to the current classname.
+- For `false`, the class will be removed from the current classname.
 
 ```js
-const cssClass = CSSClassBuilder('initial');
-let otherValue: boolean = true;
-classes.toggle('blue', anotherBooleanValue); // -> initial blue
+const classname = cssClassBuilder('initial');
+let anotherBooleanValue: boolean = true;
+classname.toggle('blue', anotherBooleanValue); // -> initial blue
 otherValue = false;
-classes.toggle('blue', anotherBooleanValue); // -> initial
+classname.toggle('blue', anotherBooleanValue); // -> initial
 ```
 
-### Connecting builder to HTML tag's class attribute
+## Using stored classnames
 
-After all the operations are done, we can connect the `class` attribute of the HTML tags with our builder using `unzip` method of the builder.
+When ready to use the classname(s) stored in the builder for the `className` or `class` attribute of the HTML/JSX tags, `unzip` method can be used to get all classname(s) as a single string.
 
 ```jsx
-const cssClass = new CSSClassBuilder('initial');
-cssClass.extend('bold italic');
+const classname = cssClassBuilder('initial');
+classname.extend('bold italic');
 
-return <div class={cssClass.unzip}></div>;
+return <div class={classname.unzip}></div>;
 ```
 
-Above `div` will have the following classes: `initial`, `bold`, `italic`.
+Above `div` will have the following classnames: `initial`, `bold`, `italic`.
 
 ## Changelog
 

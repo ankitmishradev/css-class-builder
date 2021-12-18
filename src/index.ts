@@ -1,45 +1,75 @@
-class CSSClassBuilder {
-  protected classes?: string;
+/**
+ * A builder function to create a store and introduce helper functions to handle css classnames.
+ * @param {string} className - initial classname.
+ */
+const cssClassBuilder = (className?: string | string[]): CSSClassBuilderInterface => {
+  let store: string;
 
-  constructor(className?: string) {
-    this.classes = className;
-  }
-
-  protected resolveProps = (prop: string | string[]) => {
+  const resolveProps = (prop: string | string[]) => {
     return typeof prop === 'string' ? (prop as string) : (prop as string[]).join(' ');
   };
 
-  extend(className: string | string[]) {
-    if (this.classes) {
-      const classList = this.classes.split(' ');
+  if (className) {
+    store = resolveProps(className);
+  }
+
+  /**
+   * Add classname(s) to the store. If classname(s) are already present at the store, they won't be added again.
+   */
+  const extend = (className: string | string[]) => {
+    if (store) {
+      const classList = store.split(' ');
       if (!classList.find((c) => c === className)) {
-        this.classes = this.classes?.concat(' ', this.resolveProps(className));
+        store = store?.concat(' ', resolveProps(className));
       }
     } else {
-      this.classes = this.resolveProps(className);
+      store = resolveProps(className);
     }
-    return this.classes;
-  }
+    return store;
+  };
 
-  remove(className: string | string[]) {
-    if (this.classes) {
-      const classList = this.classes.split(' ');
-      this.classes = classList.filter((c) => c !== this.resolveProps(className)).join(' ');
+  /**
+   * Remove classname(s) from the store.
+   */
+  const remove = (className: string | string[]) => {
+    if (store) {
+      const classList = store.split(' ');
+      store = classList.filter((c) => c !== resolveProps(className)).join(' ');
     }
-    return this.classes;
-  }
+    return store;
+  };
 
-  toggle = (className: string | string[], watch: boolean) => {
+  /**
+   * Toggle classname(s) from the store.
+   * @param className - classname(s) that will be toggled from the store
+   * @param watch  - a boolean value over which the builder will decide whether to add or remove the classname(s) from the store.
+   */
+  const toggle = (className: string | string[], watch: boolean) => {
     if (watch) {
-      this.classes = this.extend(className);
+      store = extend(className);
     } else {
-      this.classes = this.remove(className);
+      store = remove(className);
     }
   };
 
-  public get unzip(): string | undefined {
-    return this.classes;
-  }
-}
+  return {
+    extend,
+    remove,
+    toggle,
+    /**
+     * Retrieve classname(s) from the store as a single string.
+     */
+    get unzip(): string | undefined {
+      return store;
+    },
+  };
+};
 
-export default CSSClassBuilder;
+export default cssClassBuilder;
+
+interface CSSClassBuilderInterface {
+  extend: (className: string | string[]) => string;
+  remove: (className: string | string[]) => string;
+  toggle: (className: string | string[], watch: boolean) => void;
+  unzip: string | undefined;
+}
