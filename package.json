@@ -1,6 +1,6 @@
 {
   "name": "css-class-builder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A small typescript package built to work with ReactJS to shorten manipulation and handling of css classes by combining useful methods and function into one single package.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
