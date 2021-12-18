@@ -1,4 +1,4 @@
-[![build](https://github.com/ankitmishradev/css-class-builder/actions/workflows/build.yml/badge.svg)](https://github.com/ankitmishradev/css-class-builder/actions/workflows/build.yml)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ankitmishradev/css-class-builder/build)
 ![MIT license](https://img.shields.io/github/license/ankitmishradev/css-class-builder)
 [![CodeFactor A+](https://www.codefactor.io/repository/github/ankitmishradev/css-class-builder/badge)](https://www.codefactor.io/repository/github/ankitmishradev/css-class-builder)
 
