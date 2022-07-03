@@ -5,8 +5,12 @@
 const cssClassBuilder = (initial?: string | string[]): CSSClassBuilderInterface => {
   let store: string;
 
-  const resolveProps = (prop: string | string[]) => {
-    return typeof prop === 'string' ? (prop as string) : (prop as string[]).join(' ');
+  const resolveProps = (prop?: string | string[]) => {
+    if (prop) {
+      return typeof prop === 'string' ? (prop as string) : (prop as string[]).join(' ');
+    } else {
+      return '';
+    }
   };
 
   if (initial) {
@@ -14,9 +18,9 @@ const cssClassBuilder = (initial?: string | string[]): CSSClassBuilderInterface 
   }
 
   /**
-   * Add classname(s) to the store. If classname(s) are already present at the store, they won't be added again.
+   * Add classname(s) to the store. If classname(s) are already present in the store, they won't be added again.
    */
-  const extend = (className: string | string[]) => {
+  const extend = (className?: string | string[]) => {
     if (store) {
       const classList = store.split(' ');
       if (!classList.find((c) => c === className)) {
@@ -25,7 +29,7 @@ const cssClassBuilder = (initial?: string | string[]): CSSClassBuilderInterface 
     } else {
       store = resolveProps(className);
     }
-    return store;
+    return store.trim();
   };
 
   /**
@@ -36,7 +40,7 @@ const cssClassBuilder = (initial?: string | string[]): CSSClassBuilderInterface 
       const classList = store.split(' ');
       store = classList.filter((c) => c !== resolveProps(className)).join(' ');
     }
-    return store;
+    return store.trim();
   };
 
   /**
@@ -59,8 +63,8 @@ const cssClassBuilder = (initial?: string | string[]): CSSClassBuilderInterface 
     /**
      * Retrieve classname(s) from the store as a single string.
      */
-    get unzip(): string | undefined {
-      return store;
+    get unzip(): string {
+      return store.trim();
     },
   };
 };
